@@ -2,8 +2,8 @@
 Tennis tournament
 
 # Prerequisites
-Java version - JDK1.8
-Gradle version - 4.8.1
+* Java version - JDK1.8
+* Gradle version - 4.8.1
 
 # Steps to run:
 * git clone https://github.com/ShailyOBrienDiUS/DiUSCodingTest.git
