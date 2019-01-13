@@ -259,6 +259,79 @@ public class MatchTest {
 	}
 	
 	@Test
+	public void testPLayer1WinsMatchScore6_3() {
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("1-0"));
+		
+		//Player 2 win second game
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("1-1"));
+		
+		//Player 1 win third and fourth game
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("2-1"));
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("3-1"));
+		
+		//Player 2 win fourth game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("3-2"));
+		
+		//Player 1 win fifth and sixth
+	    match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("4-2"));
+				
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("5-2"));
+		
+		//Player 2 win seventh game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+						
+		assertThat(match.score(), equalTo("5-3"));
+		
+		//Player 1 wins the match
+	    match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("6-3, player 1 wins"));
+	}
+	
+	@Test
 	public void testSetWonByPlayer1_7_5GameScore() {
 		
 		//Consider Player1 has won 6 games in a set
@@ -266,6 +339,105 @@ public class MatchTest {
 		
 		//Consider Player2 has won 4 games in a set
 		IntStream.range(0, 5).forEach(idx -> player2.winGame());
+		
+		assertThat(match.score(), equalTo("7-5, player 1 wins"));
+	}
+	
+	@Test
+	public void testPLayer1WinsMatchScore7_5() {
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("1-0"));
+		
+		//Player 2 win second game
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("1-1"));
+		
+		//Player 1 win third and fourth game
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("2-1"));
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("3-1"));
+		
+		//Player 2 win fourth game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("3-2"));
+		
+		//Player 1 win fifth and sixth
+	    match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("4-2"));
+				
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("5-2"));
+		
+		//Player 2 win seventh game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+						
+		assertThat(match.score(), equalTo("5-3"));
+		
+		//Player 2 win 7th, 8th and 10th game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		
+		assertThat(match.score(), equalTo("5-4"));
+				
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		
+		assertThat(match.score(), equalTo("5-5"));
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("6-5"));
+		
+		//Player 1 wins the match
+	    match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
 		
 		assertThat(match.score(), equalTo("7-5, player 1 wins"));
 	}
@@ -308,6 +480,121 @@ public class MatchTest {
 
 		assertThat(match.score(), equalTo("7-6, player 1 wins"));
 		
+	}
+	
+	@Test
+	public void testTieBreakAndPlayer2WinsTheMatch() {
+		
+		//Player 1 win first game
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("1-0"));
+		
+		//Player 2 win second game
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("1-1"));
+		
+		//Player 1 win third and fourth game
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("2-1"));
+		
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("3-1"));
+		
+		//Player 2 win fourth game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+				
+		assertThat(match.score(), equalTo("3-2"));
+		
+		//Player 1 win fifth and sixth
+	    match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("4-2"));
+				
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		assertThat(match.score(), equalTo("5-2"));
+		
+		//Player 2 win seventh game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+						
+		assertThat(match.score(), equalTo("5-3"));
+		
+		//Player 2 win 7th, 8th and 10th game
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		
+		assertThat(match.score(), equalTo("5-4"));
+				
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		
+		assertThat(match.score(), equalTo("5-5"));
+		
+		//Player 1 win 11th game
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		match.pointWonBy(player1);
+		
+		assertThat(match.score(), equalTo("6-5"));
+				
+		//Player 2 win 12th game
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		
+		assertThat(match.score(), equalTo("6-6"));
+		
+		//Tie-break starts
+		assertThat(match.score(), equalTo("6-6, 0-0"));
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		match.pointWonBy(player1);
+		match.pointWonBy(player2);
+		match.pointWonBy(player2);
+		assertThat(match.score(), equalTo("6-7, player 2 wins"));
 	}
 	
 

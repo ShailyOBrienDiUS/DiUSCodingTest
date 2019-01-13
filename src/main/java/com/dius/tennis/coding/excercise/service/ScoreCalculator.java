@@ -51,6 +51,9 @@ public class ScoreCalculator {
 		if (player1Score >=7 && player1Score > player2Score && (player1Score - player2Score) >=2) {
 			player1.winGame();
 			return String.format("%s-%s, %s wins", player1.getWinGame(), player2.getWinGame(), player1.getName());
+		} else if (player2Score >=7 && player2Score > player1Score && (player2Score - player1Score) >=2) {
+			player2.winGame();
+			return String.format("%s-%s, %s wins", player1.getWinGame(), player2.getWinGame(), player2.getName());
 		}
 		return String.format("%s-%s, %s-%s", player1.getWinGame(), player2.getWinGame(), player1.getScore(), player2.getScore());
 	}
@@ -81,7 +84,7 @@ public class ScoreCalculator {
 	
 	/**
 	 * Reset players points.
-	 * It reset the players after game finish
+	 * It resets the players after game finish
 	 * @param player1 the player 1
 	 * @param player2 the player 2
 	 */
